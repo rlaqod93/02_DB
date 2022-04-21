@@ -1,0 +1,4 @@
+DROP TRIGGER TRG_EMP_NODM_WEEKEND;
+
+
+--Trigger TRG_EMP_NODM_WEEKEND이(가) 삭제되었습니다.

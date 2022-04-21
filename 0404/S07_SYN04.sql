@@ -1,0 +1,7 @@
+--PRIVATE SYNONYM
+DROP SYNONYM E;
+--Synonym E이(가) 삭제되었습니다.
+
+--PUBLIC SYNONYM
+DROP PUBLIC SYNONYM d2;
+--SYNONYM D2이(가) 삭제되었습니다.

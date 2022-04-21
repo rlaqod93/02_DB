@@ -1,0 +1,4 @@
+SELECT empno,ename,sal,
+       RANK()OVER(ORDER BY sal DESC) "RANK_DESC",
+       DENSE_RANK()OVER(ORDER BY sal DESC) "DENSE_RANK"
+FROM emp;

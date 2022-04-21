@@ -1,0 +1,6 @@
+--CTAS
+CREATE TABLE DEPT_TEMP2
+AS
+SELECT * FROM dept;
+
+SELECT * FROM dept_temp2;

@@ -1,0 +1,16 @@
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE FUNCTION func_date_kor(
+    IN_KOR_DATE IN DATE
+
+)
+RETURN VARCHAR2
+IS
+BEGIN
+   RETURN TO_CHAR(IN_KOR_DATE,'YYYY"³â"MM"¿ù"DD"ÀÏ"');
+
+END func_date_kor;
+/
+
+SELECT ename, func_date_kor(HIREDATE) AS HIREDATE
+FROM emp
+WHERE empno = 7369;

@@ -1,0 +1,42 @@
+--인덱스를 활용해서 최소값(MIN) 최대값(MAX) 구하기
+SELECT MIN(name)
+FROM new_emp4;
+
+--MIN(NAME)
+----------
+--ALLEN
+
+--INDEX를 사용해서 최소값 구하기
+--MIN
+ALTER SESSION SET STATISTICS_LEVEL = ALL;
+SELECT name
+FROM new_emp4
+WHERE name > '0'
+AND ROWNUM = 1;
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR
+                (NULL,NULL,'ALLSTATS LAST -ROWS +PREDICATE'));
+
+--최대값
+SELECT MAX(name)
+FROM new_emp4;
+
+--MAX(NAME)
+-----------
+--SMITH
+
+--INDEX를 사용해서 최대값 구하기
+--ORACLE HINT : /*+ INDEX_DESC (테이블 ALLAS 인덱스명) */ name
+
+SELECT /*+ INDEX_DESC (t1 ALLAS IDX_NEWEMP4_NAME)*/name
+FROM new_emp4 t1
+WHERE name > '0'
+AND ROWNUM = 1;
+
+ALTER SESSION SET STATISTICS_LEVEL = ALL;
+SELECT /*+ INDEX_DESC (t1 ALLAS IDX_NEWEMP4_NAME)*/name
+FROM new_emp4 t1
+WHERE name > '0'
+AND ROWNUM = 1;
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR
+                (NULL,NULL,'ALLSTATS LAST -ROWS +PREDICATE'));
+

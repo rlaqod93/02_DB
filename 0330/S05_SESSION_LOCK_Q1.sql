@@ -1,0 +1,19 @@
+CREATE TABLE DEPT_HW
+AS
+SELECT * FROM dept;
+
+UPDATE DEPT_HW
+ SET dname = 'DATABASE',loc = 'SEOUL'
+WHERE deptno = 30;
+
+SELECT * FROM DEPT_HW;
+
+ROLLBACK;
+
+UPDATE DEPT_HW
+ SET dname = 'DATABASE',loc = 'SEOUL'
+WHERE deptno = 30;
+
+SELECT * FROM dept_hw;
+
+COMMIT;
